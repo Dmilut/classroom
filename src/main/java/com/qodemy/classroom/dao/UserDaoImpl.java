@@ -8,25 +8,53 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author dmilut
+ */
+
 @Repository
 public class UserDaoImpl implements UserDao {
 
     @Autowired
     private SessionFactory sessionFactory;
-/*
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }*/
 
-    public void saveUser(User user) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<User> getAll() {
+        Session session = sessionFactory.getCurrentSession();
+        List<User> userList;
+        userList = session.createQuery("from User").list();
+
+        return userList;
+    }
+
+    @Override
+    public User findById(int id) {
+        return null;
+    }
+
+    @Override
+    public User findByName(String name) {
+        return null;
+    }
+
+    @Override
+    public void create(User user) {
         sessionFactory.getCurrentSession().save(user);
     }
 
-    @SuppressWarnings("unchecked")
-    public List<User> findAllUsers() {
-        Session session = sessionFactory.getCurrentSession();
-        List<User> userList = session.createQuery("from User").list();
+    @Override
+    public void update(User user) {
 
-        return userList;
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public boolean exists(User user) {
+        return false;
     }
 }

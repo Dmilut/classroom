@@ -10,7 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class AppLauncher {
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
         UserService userService = context.getBean(UserService.class);
@@ -33,5 +33,5 @@ public class AppLauncher {
         }
 
         context.close();
-    }
+    }*/
 }

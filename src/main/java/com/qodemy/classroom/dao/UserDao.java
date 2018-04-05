@@ -4,9 +4,24 @@ import com.qodemy.classroom.model.User;
 
 import java.util.List;
 
+/**
+ * @author dmilut
+ */
+
 public interface UserDao {
 
-    void saveUser(User user);
+    List<User> getAll();
 
-    List<User> findAllUsers();
+    User findById(int id);
+
+    User findByName(String name);
+
+    void create(User user);
+
+    void update(User user);
+
+    void delete(int id);
+
+    boolean exists(User user);
 }
+

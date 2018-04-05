@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import java.util.List;
 
 @Service
@@ -17,12 +16,38 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-    public void saveUser(User user) {
-        userDao.saveUser(user);
+    @Override
+    public List<User> getAll() {
+        return userDao.getAll();
     }
 
-    public List<User> findAllUsers() {
+    @Override
+    public User findById(int id) {
+        return null;
+    }
 
-        return userDao.findAllUsers();
+    @Override
+    public User findByName(String name) {
+        return null;
+    }
+
+    @Override
+    public void create(User user) {
+        userDao.create(user);
+    }
+
+    @Override
+    public void update(User user) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public boolean exists(User user) {
+        return false;
     }
 }
