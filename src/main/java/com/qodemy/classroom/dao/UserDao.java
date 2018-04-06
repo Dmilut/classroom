@@ -12,15 +12,15 @@ public interface UserDao {
 
     List<User> getAll();
 
-    User findById(int id);
+    User findById(long id);
 
     User findByName(String name);
 
     void create(User user);
 
-    void update(User user);
+    void update(long id, User user);
 
-    void delete(int id);
+    void delete(long id);
 
     boolean exists(User user);
 }
