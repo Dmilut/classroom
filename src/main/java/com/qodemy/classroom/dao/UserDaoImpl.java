@@ -65,6 +65,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean exists(User user) {
+        //TODO we should check by login instead of id.
         if (findById(user.getId()) != null) {
             return true;
         }
