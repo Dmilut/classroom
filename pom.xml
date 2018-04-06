@@ -21,6 +21,7 @@
         <jackson.version>2.9.5</jackson.version>
         <servlet-api.version>4.0.0</servlet-api.version>
         <jaxb-api.version>2.3.0</jaxb-api.version>
+        <swagger.version>2.4.0</swagger.version>
     </properties>
 
     <dependencies>
@@ -90,6 +91,20 @@
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>${jaxb-api.version}</version>
+        </dependency>
+
+        <!-- swagger2 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
+        <!-- swagger-ui -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
     </dependencies>
 
