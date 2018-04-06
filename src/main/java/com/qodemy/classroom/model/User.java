@@ -2,26 +2,29 @@ package com.qodemy.classroom.model;
 
 
 import javax.persistence.*;
-import java.io.Serializable;
+
+/**
+ * @author dmilut
+ */
 
 @Entity
 @Table(name = "USERS")
-public class User{
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "FIRST_NAME")
-    private String firstName;
-
-    @Column(name = "LAST_NAME")
-    private String lastName;
+    @Column(name = "NAME")
+    private String name;
 
     @Column(name = "EMAIL")
     private String email;
 
- /*   @Column(name = "PASSWORD", nullable = false)*/
+    @Column(name = "LOGIN")
+    private String login;
+
+    /*   @Column(name = "PASSWORD", nullable = false)*/
     @Column(name = "PASSWORD")
     private String password;
 
@@ -33,20 +36,12 @@ public class User{
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -55,6 +50,14 @@ public class User{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {

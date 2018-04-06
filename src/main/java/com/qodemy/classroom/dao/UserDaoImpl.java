@@ -29,13 +29,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findById(int id) {
-        return null;
+    public User findById(long id) {
+        return sessionFactory.getCurrentSession().get(User.class, id);
     }
 
     @Override
     public User findByName(String name) {
-        return null;
+        return sessionFactory.getCurrentSession().get(User.class, name);
     }
 
     @Override
@@ -44,17 +44,30 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void update(User user) {
+    public void update(long id, User user) {
+        Session session = sessionFactory.getCurrentSession();
+        User currentUser = session.byId(User.class).load(id);
+        currentUser.setName(user.getName());
+/*        currentUser.setEmail(user.getEmail());
+        currentUser.setLogin(user.getLogin());
+        currentUser.setPassword(user.getPassword());*/
 
+        session.flush();
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
+        Session session = sessionFactory.getCurrentSession();
+        User user = session.byId(User.class).load(id);
 
+        session.delete(user);
     }
 
     @Override
     public boolean exists(User user) {
+        if (findById(user.getId()) != null) {
+            return true;
+        }
         return false;
     }
 }

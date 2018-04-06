@@ -9,6 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * @author dmilut
+ */
+
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -22,13 +26,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(int id) {
-        return null;
+    public User findById(long id) {
+        return userDao.findById(id);
     }
 
     @Override
     public User findByName(String name) {
-        return null;
+        return userDao.findByName(name);
     }
 
     @Override
@@ -37,17 +41,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(User user) {
-
+    public void update(long id, User user) {
+        userDao.update(id, user);
     }
 
     @Override
-    public void delete(int id) {
-
+    public void delete(long id) {
+        userDao.delete(id);
     }
 
     @Override
     public boolean exists(User user) {
-        return false;
+        return userDao.exists(user);
     }
 }
