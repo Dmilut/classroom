@@ -8,7 +8,10 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "USERS")
+@Table(
+        name = "USERS",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"LOGIN"})
+)
 public class User {
 
     @Id
@@ -66,5 +69,16 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

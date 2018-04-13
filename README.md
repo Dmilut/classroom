@@ -17,3 +17,6 @@ Ensure you have this installed before proceeding further
 - Node 6.0 or above,
 - npm 5 or above,
 - Angular-cli 1.6.3
+
+### API Documentation
+Swagger URL: http://localhost:8080/swagger-ui.html/
